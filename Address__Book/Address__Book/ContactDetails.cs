@@ -69,7 +69,10 @@ namespace Address__Book
         }
 
     }
-
+    /// <summary>
+    /// 
+    /// Adding New Contact Details
+    /// </summary>
     public class AddingNewContacts
     {
         public void AddingNewContact()
