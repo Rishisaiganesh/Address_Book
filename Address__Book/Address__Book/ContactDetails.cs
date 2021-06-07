@@ -70,6 +70,33 @@ namespace Address__Book
 
     }
 
-
+    public class AddingNewContacts
+    {
+        public void AddingNewContact()
+        {
+            Contacts contactPerson = new Contacts();
+            Console.WriteLine("Add a new contact.");
+            Console.WriteLine("Enter First Name: ");
+            contactPerson.FirstName = Console.ReadLine();
+            Console.WriteLine("Enter Last Name: ");
+            contactPerson.LastName = Console.ReadLine();
+            Console.WriteLine("Enter Address: ");
+            contactPerson.Address = Console.ReadLine();
+            Console.WriteLine("Enter City: ");
+            contactPerson.City = Console.ReadLine();
+            Console.WriteLine("Enter State: ");
+            contactPerson.State = Console.ReadLine();
+            Console.WriteLine("Enter ZipCode: ");
+            contactPerson.ZipCode = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Phone Number: ");
+            contactPerson.PhoneNumber = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Enter Email: ");
+            contactPerson.Email = Console.ReadLine();
+            contactPerson.ValidateContactDetails();
+        }
+    }
 
 }
+
+
+
