@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Address__Book
 {
-    interface ContactDetails
+    interface IContactDetails
     {
         void ValidateContactDetails();
     }
-    class Contacts : IContactDetails
+    public class Contacts : IContactDetails
     {
         //variables
         private string firstName;
@@ -96,6 +96,60 @@ namespace Address__Book
             Console.WriteLine("Enter Email: ");
             contactPerson.Email = Console.ReadLine();
             contactPerson.ValidateContactDetails();
+        }
+    }
+    //uc3Editing new contact list
+
+    public class NewContact
+    {
+        public void Newcontact()
+        {
+            Console.WriteLine("press 1 to view contact list");
+            Console.WriteLine("press 2 to add New contact list");
+            Console.WriteLine("press 3 to Edit contacts in list");
+            Console.WriteLine("press 4 End");
+        }
+        public void add()
+        {
+            int Check = Convert.ToInt32(Console.ReadLine());
+            while (Check > 4 && Check <=0)
+            {
+                Console.WriteLine("Invalid Expression Enter valid Input");
+                NewContact();
+                Check = Convert.ToInt32(Console.ReadLine());   
+            }
+            AddingNewContacts obj = new AddingNewContacts();
+            switch (Check )
+            {
+                case 1:
+                    //Displaying contact list
+                    obj.AddingNewContact();
+                    Newcontact();//User input
+                    add();
+                    break;
+                case 2:
+                    //Adding new contact
+                    obj.AddingNewContact();
+                    Console.WriteLine("Contacts:" + Contacts);
+                    obj.AddingNewContact();
+                    add();
+                    break;
+                case 3:
+                    Console.WriteLine("Please Edit Contact");
+                    Newcontact();
+                    add();
+                    break;
+                case 4:
+                    Console.WriteLine("Your contact is Succefully Edit");
+                    break;
+
+
+            }
+        }
+
+        private void NewContact()
+        {
+            throw new NotImplementedException();
         }
     }
 

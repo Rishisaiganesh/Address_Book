@@ -23,6 +23,8 @@ namespace Address__Book
             Console.WriteLine("Email Id =" + contacts.Email);
             AddingNewContacts Add = new AddingNewContacts();
             Add.AddingNewContact();
+            NewContact con = new NewContact();
+            con.Newcontact();
 
 
         }
