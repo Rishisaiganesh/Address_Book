@@ -75,6 +75,7 @@ namespace Address__Book
     /// </summary>
     public class AddingNewContacts
     {
+        
         public static object Contacts { get; internal set; }
 
         public void AddingNewContact()
@@ -99,6 +100,9 @@ namespace Address__Book
             contactPerson.Email = Console.ReadLine();
             contactPerson.ValidateContactDetails();
         }
+
+
+        
     }
     public class NewContact
     {
@@ -108,7 +112,8 @@ namespace Address__Book
             Console.WriteLine("press 1 to view Contact list.");
             Console.WriteLine("press 2 to Add new Contact to list.");
             Console.WriteLine("press 3 to Edit Contact in list.");
-            Console.WriteLine("press 4 to Exit.");
+            Console.WriteLine("Press 4 To Delite contact:");
+            Console.WriteLine("press 5 to Exit.");
         }
         public void Selection()
         {
@@ -143,8 +148,14 @@ namespace Address__Book
                     Selection();
                     break;
                 case 4:
-                    Console.WriteLine("Exiting you safely...");
-                    Console.WriteLine("Thank you.");
+                    Console.WriteLine("Contact has delited");
+                    CheckDetails();
+                    Selection();
+                    break;
+                case 5:
+                    //Exit
+                    Console.WriteLine("Exit");
+                    Console.WriteLine("Thankyou");
                     break;
                 default:
                     Console.WriteLine("invalid");
