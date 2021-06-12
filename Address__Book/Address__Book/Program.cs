@@ -1,4 +1,5 @@
 ﻿using System;
+using static Address__Book.ContactDetails;
 
 namespace Address__Book
 {
