@@ -8,7 +8,7 @@ namespace Address__Book
     {
         void ValidateContactDetails();
     }
-    class Contacts : IContactDetails
+    public class Contacts : IContactDetails
     {
         //variables
         private string firstName;
@@ -75,6 +75,8 @@ namespace Address__Book
     /// </summary>
     public class AddingNewContacts
     {
+        public static object Contacts { get; internal set; }
+
         public void AddingNewContact()
         {
             Contacts contactPerson = new Contacts();
@@ -98,7 +100,58 @@ namespace Address__Book
             contactPerson.ValidateContactDetails();
         }
     }
+    public class NewContact
+    {
+        public void CheckDetails()
+        {
+            Console.WriteLine();
+            Console.WriteLine("press 1 to view Contact list.");
+            Console.WriteLine("press 2 to Add new Contact to list.");
+            Console.WriteLine("press 3 to Edit Contact in list.");
+            Console.WriteLine("press 4 to Exit.");
+        }
+        public void Selection()
+        {
 
+
+            int input = Convert.ToInt32(Console.ReadLine());
+            while (input > 4 || input <= 0)
+            {
+                Console.WriteLine("invalid input");
+                Console.WriteLine("Enter a valid input ");
+                CheckDetails();
+                input = Convert.ToInt32(Console.ReadLine());
+            }
+            AddingNewContacts contactView = new AddingNewContacts();
+            switch (input)
+            {
+                case 1:
+                    contactView.AddingNewContact();
+                    CheckDetails();
+                    Selection();
+                    break;
+                case 2:
+                    contactView.AddingNewContact();
+                    Console.WriteLine($" Contacts: {AddingNewContacts.Contacts}");
+                    contactView.AddingNewContact();
+                    CheckDetails();
+                    Selection();
+                    break;
+                case 3:
+                    Console.WriteLine("Edit a Contact");
+                    CheckDetails();
+                    Selection();
+                    break;
+                case 4:
+                    Console.WriteLine("Exiting you safely...");
+                    Console.WriteLine("Thank you.");
+                    break;
+                default:
+                    Console.WriteLine("invalid");
+                    break;
+            }
+        }
+    }
 }
 
 
